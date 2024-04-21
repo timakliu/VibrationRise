@@ -11,21 +11,9 @@
         <button onclick="sendMessageToBot()">Написать боту</button>
     
         <script>
-            // Замените YOUR_BOT_TOKEN на ваш токен Telegram бота
-            const botToken = '6444487078:AAFlUtMCq1WsKJZ_4lWURZyNUpDlST6l7D0';
-    
-            function sendMessageToBot() {
-                const message = 'Привет, бот!';
-                TelegramBot.sendMessage(botToken, message)
-                    .then(response => {
-                        console.log('Сообщение успешно отправлено:', response);
-                        alert('Сообщение успешно отправлено!');
-                    })
-                    .catch(error => {
-                        console.error('Ошибка отправки сообщения:', error);
-                        alert('Произошла ошибка при отправке сообщения.');
-                    });
-            }
+          var WebApp = window.Telegram.WebApp;
+
+WebApp.showAlert(`Добро пожаловать, @${WebApp.WebAppUser.username}.`);
         </script>
     </body>
 </html>
