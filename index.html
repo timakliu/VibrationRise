@@ -7,29 +7,26 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <button type="button" class="btn btn-primary btn-lg btn-block mb-2">1</button>
-                <button type="button" class="btn btn-primary btn-lg btn-block mb-2">2</button>
-                <button type="button" class="btn btn-primary btn-lg btn-block mb-2">3</button>
-            </div>
-            <div class="col-md-6">
-                <button type="button" class="btn btn-primary btn-lg btn-block mb-2">4</button>
-                <button type="button" class="btn btn-primary btn-lg btn-block mb-2">5</button>
-                <button type="button" class="btn btn-primary btn-lg btn-block mb-2">6</button>
-            </div>
-        </div>
-    </div>
-     <button onclick="showAlert()">Нажми меня</button>
-
-    <script>
-        function showAlert() {
-            alert('Привет, мир!');
-            let tg = window.Telegram.WebApp;
-        }
-    </script>
+    <body>
+        <button onclick="sendMessageToBot()">Написать боту</button>
     
-</body>
+        <script>
+            // Замените YOUR_BOT_TOKEN на ваш токен Telegram бота
+            const botToken = '6444487078:AAFlUtMCq1WsKJZ_4lWURZyNUpDlST6l7D0';
+    
+            function sendMessageToBot() {
+                const message = 'Привет, бот!';
+                TelegramBot.sendMessage(botToken, message)
+                    .then(response => {
+                        console.log('Сообщение успешно отправлено:', response);
+                        alert('Сообщение успешно отправлено!');
+                    })
+                    .catch(error => {
+                        console.error('Ошибка отправки сообщения:', error);
+                        alert('Произошла ошибка при отправке сообщения.');
+                    });
+            }
+        </script>
+    </body>
 </html>
+
